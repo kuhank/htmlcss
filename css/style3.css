@@ -1,0 +1,23 @@
+.section {
+    padding: 20px;
+    border: 2px solid #444;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+    font-family: Arial, sans-serif;
+}
+
+.section1 {
+    background-color: lightblue;
+}
+
+.section2 {
+    background-color: lightgreen;
+}
+
+.section3 {
+    background-color: lightcoral;
+}
+
+.section:hover {
+    background-color: gold;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Scopes</title>
+    <script>
+        // Global Scope
+        let globalVar = "I am global";
+
+        function scopeTest() {
+            // Function Scope
+            var functionVar = "I am in function";
+
+            if (true) {
+                // Block Scope
+                let blockVar = "I am block scoped";
+
+                // blockVar is accessible only inside this block
+                console.log(blockVar); // Output: I am block scoped
+            }
+
+            // functionVar is accessible anywhere inside the function
+            console.log(functionVar); // Output: I am in function
+
+            // blockVar is NOT accessible here - will throw an error if uncommented
+            // console.log(blockVar); //
+        }
+
+        // Call the function
+        scopeTest();
+
+        // globalVar is accessible anywhere in the script
+        console.log(globalVar); // Output: I am global
+    </script>
+</head>
+<body>
+    <h2>Open the Console to See Scope Output</h2>
+    <p>Right-click → Inspect → Console</p>
+</body>
+</html>

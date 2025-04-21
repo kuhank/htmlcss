@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Abstraction and Polymorphism</title>
+</head>
+<body>
+
+  <h2>Shape Area Calculator</h2>
+  <button onclick="calculateAreas()">Calculate Areas</button>
+  <p id="output"></p>
+
+  <script>
+    // Base class - Shape (Abstraction)
+    class Shape {
+      constructor(name) {
+        this.name = name;
+      }
+
+      getArea() {
+        return "Area not defined";
+      }
+    }
+
+    // Derived class - Circle (Polymorphism)
+    class Circle extends Shape {
+      constructor(radius) {
+        super("Circle");
+        this.radius = radius;
+      }
+
+      getArea() {
+        return Math.PI * this.radius ** 2;
+      }
+    }
+
+    // Derived class - Square (Polymorphism)
+    class Square extends Shape {
+      constructor(side) {
+        super("Square");
+        this.side = side;
+      }
+
+      getArea() {
+        return this.side ** 2;
+      }
+    }
+
+    function calculateAreas() {
+      const circle = new Circle(3);
+      const square = new Square(4);
+
+      const result = `
+        ${circle.name} Area: ${circle.getArea().toFixed(2)}<br>
+        ${square.name} Area: ${square.getArea()}
+      `;
+
+      document.getElementById("output").innerHTML = result;
+      console.log("Circle area:", circle.getArea());
+      console.log("Square area:", square.getArea());
+    }
+  </script>
+
+</body>
+</html>

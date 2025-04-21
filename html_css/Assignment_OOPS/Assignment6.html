@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Function Declaration vs Expression</title>
+</head>
+<body>
+
+  <h2>Function Declaration vs Expression</h2>
+  <button onclick="showGreetings()">Show Greetings</button>
+  <p id="output"></p>
+
+  <script>
+    // Function Declaration (hoisted)
+    function greet() {
+      return "Hello!";
+    }
+
+    // Function Expression (not hoisted)
+    const greetExpr = function () {
+      return "Hi!";
+    };
+
+    function showGreetings() {
+      const output = `Function Declaration: ${greet()} \nFunction Expression: ${greetExpr()}`;
+      console.log(output);
+      document.getElementById("output").innerText = output;
+    }
+
+    // Note: greet() can be called before its declaration.
+    // greetExpr() cannot be called before its line of definition.
+  </script>
+
+</body>
+</html>

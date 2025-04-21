@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multiplication table</title>
+    <script>
+        function display() {  
+            var num = document.getElementById("num").value;
+            document.writeln("<b>multiplication table of ", num, '</b><br /><br />');
+            for (var i = 1; i <= 10; i++) {
+                document.writeln(num, " * ", i, " = ", (num * i) + '<br />');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>looping - For loop</h2>
+    Enter the multiplication table to be displayed: <input type="text" id="num" />
+    <input type="submit" onclick="display()" value="Get tables" />
+</body>
+
+</html>

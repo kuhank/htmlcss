@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd Checker</title>
+    <script>
+        // This function is called when the user clicks the button
+        function checkEvenOrOdd() {
+            // Get the value from the input field
+            let number = document.getElementById("numInput").value;
+
+            // Convert the input to a number
+            number = parseInt(number);
+
+            // Check if input is a valid number
+            if (isNaN(number)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            // Check if the number is even or odd using modulus operator (%)
+            if (number % 2 === 0) {
+                // This block runs if the number is divisible by 2
+                alert(number + " is even.");
+            } else {
+                // This block runs if the number is not divisible by 2
+                alert(number + " is odd.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Even or Odd Checker</h2>
+    <!-- Input field for user to enter a number -->
+    <input type="text" id="numInput" placeholder="Enter a number">
+    
+    <!-- Button to trigger the check -->
+    <button onclick="checkEvenOrOdd()">Check</button>
+</body>
+</html>

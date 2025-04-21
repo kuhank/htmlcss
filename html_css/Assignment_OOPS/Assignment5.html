@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closure Click Counter</title>
+</head>
+<body>
+
+  <h2>Click Counter using Closure</h2>
+  <button onclick="updateCounter()">Click Me</button>
+  <p id="counter">Clicked 0 times</p>
+
+  <script>
+    function clickCounter() {
+      let count = 0;
+      return function () {
+        count++;
+        return count;
+      };
+    }
+
+    // Create closure instance
+    const countClick = clickCounter();
+
+    function updateCounter() {
+      const currentCount = countClick();
+      document.getElementById("counter").innerText = `Clicked ${currentCount} times`;
+    }
+  </script>
+
+</body>
+</html>

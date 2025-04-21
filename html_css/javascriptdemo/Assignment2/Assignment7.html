@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is Adult Checker</title>
+    <script>
+        // Function to check if age is 18 or more
+        function isAdult(age) {
+            return age >= 18;
+        }
+
+        function checkAge() {
+            let ageInput = document.getElementById("ageInput").value;
+            let age = parseInt(ageInput);
+
+            // Check for valid input
+            if (isNaN(age)) {
+                alert("Please enter a valid number for age.");
+                return;
+            }
+
+            // Call isAdult and display result
+            let result = isAdult(age);
+            document.getElementById("result").textContent = result ? "You are an adult" : "You are not an adult";
+
+            // Also log to console
+            console.log("Age entered:", age);
+            console.log("Is adult:", result);
+        }
+    </script>
+</head>
+<body>
+    <h2>Check if You're an Adult</h2>
+    <input type="text" id="ageInput" placeholder="Enter your age">
+    <button onclick="checkAge()">Check</button>
+
+    <p id="result" style="font-weight: bold; margin-top: 10px;"></p>
+    <p>Also see the console for output.</p>
+</body>
+</html>

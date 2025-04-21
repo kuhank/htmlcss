@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Sheet</title>
+    <script src="validate.js"></script>
+    <style>
+        body {
+            background-color: hsl(33, 71%, 46%);
+            text-align: center;
+            border: 4px solid black;
+            margin: 200px 500px 800px;
+        }
+
+        #name {
+            background-color: azure;
+            text-align: center;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="/img/usr.png" width="50px" height="50px">
+        <h1>Student Grade sheeet</h1>
+        <hr />
+        Enter the name: <input type="text" id="name" placeholder="enter name"><br /><br />
+        Enter the marks: <input type="text" id="stud-marks" placeholder="enter marks"><br /><br />
+        Enter total marks: <input type="text" id="total-marks" placeholder="total marks"><br /><br />
+        <p>Grade is: <b><span id="result"></span></b></p>
+        <button value="validate" onclick="validatename()" type="submit">validate name</button>
+        <button value="grade" onclick="GradeAssign()" type="submit">Grade</button>
+    </div>
+</body>
+
+</html>

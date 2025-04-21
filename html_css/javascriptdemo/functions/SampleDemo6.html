@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function greet(name){
+            function displayName(){
+                console.log('Hi ' + name);
+            }
+            return displayName;
+        }
+
+        const g1 = greet('John');
+        console.log(g1);
+        g1();
+    </script>
+    <h2>Function Closure</h2>
+</body>
+</html>

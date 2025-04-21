@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Methods</title>
+    <script>
+        function showDate() {
+            // Create a new Date object for today
+            let today = new Date();
+
+            // Get the day, month (0-based), and year
+            let day = today.getDate();
+            let month = today.getMonth() + 1; // Add 1 because months start from 0
+            let year = today.getFullYear();
+
+            // Display on the page
+            document.getElementById("day").textContent = day;
+            document.getElementById("month").textContent = month;
+            document.getElementById("year").textContent = year;
+
+            // Also log to console
+            console.log(`Today is ${day}/${month}/${year}`);
+        }
+    </script>
+</head>
+<body>
+    <h2>Today's Date</h2>
+    <button onclick="showDate()">Show Date</button>
+    <p><strong>Day:</strong> <span id="day"></span></p>
+    <p><strong>Month:</strong> <span id="month"></span></p>
+    <p><strong>Year:</strong> <span id="year"></span></p>
+    <p>Check the browser console for full date format.</p>
+</body>
+</html>

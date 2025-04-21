@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Properties</title>
+</head>
+<script>
+    function display(){
+        const ele = document.getElementById("p1");
+        document.getElementById("demo").innerHTML = "New Text in a para, " + ele.innerHTML;
+    }
+</script>
+<body>
+    <h2>JS DOM</h2>
+    <p id="p1"> this is a sample java script</p>
+    <p> this is a DOM Demo in JS</p>
+    <p id="demo"></p>
+    <input type="submit" onclick="display()" value="Display" />
+</body>
+</html>

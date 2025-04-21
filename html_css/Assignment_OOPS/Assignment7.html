@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Person Constructor Example</title>
+</head>
+<body>
+
+  <h2>Person Introduction</h2>
+  <button onclick="showIntroduction()">Introduce Person</button>
+  <p id="intro"></p>
+
+  <script>
+    // Constructor function
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+      this.introduce = function () {
+        return `Hi, I'm ${this.name} and I'm ${this.age} years old.`;
+      };
+    }
+
+    // Create a person object
+    const person1 = new Person("Alice", 30);
+
+    function showIntroduction() {
+      const message = person1.introduce();
+      console.log(message);
+      document.getElementById("intro").innerText = message;
+    }
+  </script>
+
+</body>
+</html>

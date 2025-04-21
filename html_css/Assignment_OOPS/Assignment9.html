@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Encapsulation with Closures</title>
+</head>
+<body>
+
+  <h2>Encapsulation Example (Private Variable)</h2>
+  <button onclick="showSecret()">Show Secret</button>
+  <button onclick="updateSecret()">Update Secret</button>
+  <p id="secret"></p>
+
+  <script>
+    // Encapsulation using closure
+    function SecretHolder(secret) {
+      return {
+        getSecret: function () {
+          return secret;
+        },
+        setSecret: function (newSecret) {
+          secret = newSecret;
+        }
+      };
+    }
+
+    // Create instance with private 'secret'
+    const mySecret = SecretHolder("initial");
+
+    function showSecret() {
+      const current = mySecret.getSecret();
+      document.getElementById("secret").innerText = `Secret: ${current}`;
+    }
+
+    function updateSecret() {
+      mySecret.setSecret("updated");
+      document.getElementById("secret").innerText = "Secret updated!";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day finder</title>
+    <script>
+        function findday() {
+            var daynum = parseInt(document.getElementById("dayinput").value);
+            var dayname = '';
+            switch (daynum) {
+                case 0:
+                    dayName = "Sunday";
+                    break;
+                case 1:
+                    dayName = "Monday";
+                    break;
+                case 2:
+                    dayName = "Tuesday";
+                    break;
+                case 3:
+                    dayName = "Wednesday";
+                    break;
+                case 4:
+                    dayName = "Thursday";
+                    break;
+                case 5:
+                    dayName = "Friday";
+                    break;
+                case 6:
+                    dayName = "Saturday";
+                    break;
+                default:
+                    dayName = "Invalid number! Enter 0-6.";
+            }
+            document.getElementById("result").textContent=`Day: ${dayName}`;
+        }
+    </script>
+</head>
+    <h2>Day identifier</h2>
+    Enter the day number: <input type="text" id = "dayinput" placeholder="eg.. 0,1..6">
+    <button type="submit" onclick="findday()">Find Day</button>
+    <p id="result">Day: </p>
+<body>
+
+</body>
+
+</html>

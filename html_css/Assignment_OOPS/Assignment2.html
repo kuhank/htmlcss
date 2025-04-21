@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Modify Car Object</title>
+</head>
+<body>
+
+  <h2>Modify Car Object</h2>
+  <button onclick="modifyCar()">Add Color & Delete Year</button>
+  <pre id="output"></pre>
+
+  <script>
+    const car = {
+      brand: "Toyota",
+      model: "Camry",
+      year: 2021,
+      displayInfo: function () {
+        return `Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}`;
+      }
+    };
+
+    function modifyCar() {
+      // Add new property
+      car.color = "Red";
+
+      // Delete existing property
+      delete car.year;
+
+      // Output updated object
+      console.log(car);
+      document.getElementById("output").textContent = JSON.stringify(car, null, 2);
+    }
+  </script>
+
+</body>
+</html>

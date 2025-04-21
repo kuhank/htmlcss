@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<script>
+    function generateFibonacci(n) {
+        let fibseries = [];
+        if (n <= 0) return fibseries;
+        fibseries[0] = 0;
+        if (n > 1) fibseries[1] = 1;
+        for (var i = 2; i < n; i++) {
+            fibseries[i] = fibseries[i - 1] + fibseries[i - 2];
+        }
+        return fibseries;
+    }
+    function Fibonacci() {
+        var n = parseInt(document.getElementById("num").value);
+        var result = generateFibonacci(n);
+        document.getElementById("result").textContent = `Fibonacci series: ${result.join(', ')}`;
+    }
+
+    function findOddorEven() {
+        var n = document.getElementById("inputNumber").value;
+        if (n % 2 == 0) {
+            document.getElementById("resultOddorEven").textContent = `The number ${n} is Even`;
+        }
+        else {
+            document.getElementById("resultOddorEven").textContent = `The number ${n} is Odd`;
+        }
+    }
+
+    function isPalindrome() {
+        var str1 = document.getElementById("InputString").value;
+        var str2 = str1.split('').reverse().join('');
+        if (str1 == str2) {
+            document.getElementById("resultPalindrome").textContent = `The String ${str1} is Palidrome`;
+        }
+        else {
+            document.getElementById("resultPalindrome").textContent = `The String ${str1} is Not Palidrome`;
+        }
+    }
+
+    function Fact() {
+        var n1 = document.getElementById("Fact-inp").value;
+        var fact = 1;
+        for (var i = 1; i <= n1; i++) {
+            fact = fact * i;
+        }
+        document.getElementById("resultFact").textContent = `The Factorial of ${n1} is ${fact}`;
+
+    }
+
+    function sortNumbers() {
+        const input = document.getElementById("numberInput").value;
+        const numArray = input.split(",").map(Number).filter(n => !isNaN(n));
+
+        if (numArray.length === 0) {
+            alert("Please enter valid numbers separated by commas.");
+            return;
+        }
+
+        const ascSorted = [...numArray].sort((a, b) => a - b);
+        const descSorted = [...numArray].sort((a, b) => b - a);
+
+        document.getElementById("ascResult").textContent = ascSorted.join(", ");
+        document.getElementById("descResult").textContent = descSorted.join(", ");
+    }
+</script>
+
+<body>
+    <h2>Fibonacci Series</h2>
+    Enter Number: <input type="text" id="num" placeholder="Enter maximum number" />
+    <button type="submit" onclick="Fibonacci()">Generate Fibonacci</button>
+    <p id="result"></p>
+    <hr />
+
+    <h2>Find Odd or Even</h2>
+    Enter a Number: <input type="text" id="inputNumber" placeholder="e.g. 1,2,..." />
+    <input type="submit" onclick="findOddorEven()" value="Find Odd or Even">
+    <p>Result: <span id=resultOddorEven></span></p>
+    <hr />
+
+    <h2>Palindrome</h2>
+    Enter a String: <input type="text" id="InputString" placeholder="enter string" />
+    <input type="submit" onclick="isPalindrome()" value="Palidrome check">
+    <p>Result: <span id=resultPalindrome></span></p>
+    <hr />
+
+    <h2>N Factorial</h2>
+    Factorial of: <input type="text" id="Fact-inp" placeholder="enter a number" />
+    <input type="submit" onclick="Fact()" value="Factorial">
+    <p>Result: <span id=resultFact></span></p>
+    <hr />
+
+    <h2>Sort Numbers</h2>
+    <label>Enter numbers (comma-separated):</label><br>
+    <input type="text" id="numberInput" placeholder="e.g. 5,3,8,1"><br>
+    <button onclick="sortNumbers()">Sort</button>
+
+    <h3>Result</h3>
+    <p><strong>Ascending:</strong> <span id="ascResult"></span></p>
+    <p><strong>Descending:</strong> <span id="descResult"></span></p>
+
+</body>
+
+</html>

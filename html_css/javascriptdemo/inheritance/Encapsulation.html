@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulation Demo</title>
+</head>
+<script>
+    class backaccount{
+        constructor(acctnumber, accholdername,balance){
+            this.acctnumber = acctnumber;
+            this.accholdername = accholdername;
+            this.balance = balance;
+        }
+        showaccountdetails(){
+            return this.acctnumber + " " + this.accholdername + " " + this.balance;
+        }
+        deposit(amount){
+            this.balance += amount;
+            return this.balance;
+        }
+        withdraw(amount){
+            if(this.balance >= amount){
+                this.balance -= amount;
+                return this.balance;
+            }else{
+                return "Insufficient balance";
+            }
+        }
+        getBalance(){
+            return this.balance;
+        }
+
+    }
+    let mybankaccount=new backaccount(12345,"kuhan",1000);
+    mybankaccount.deposit(500);
+    mybankaccount.withdraw(200);
+    console.log(mybankaccount.showaccountdetails());
+    console.log(mybankaccount.getBalance());
+
+</script>
+<body>
+    <h1>Encapsulation</h1>
+</body>
+</html>

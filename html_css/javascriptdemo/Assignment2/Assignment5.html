@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Methods</title>
+    <script>
+        // Ask user to enter their full name
+        let fullName = prompt("Enter your full name:");
+
+        if (fullName) {
+            // Convert to uppercase
+            let upperName = fullName.toUpperCase();
+
+            // Count total characters including spaces
+            let nameLength = fullName.length;
+
+            // Extract first name (assumes space separates first and last name)
+            let firstName = fullName.split(" ")[0];
+
+            // Display in console
+            console.log("Uppercase:", upperName);
+            console.log("Length:", nameLength);
+            console.log("First name:", firstName);
+
+            // Also display on the page
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("upper").textContent = upperName;
+                document.getElementById("length").textContent = nameLength;
+                document.getElementById("first").textContent = firstName;
+            });
+        } else {
+            alert("You didn't enter a name!");
+        }
+    </script>
+</head>
+<body>
+    <h2>Check the Output Below</h2>
+    <p><strong>Uppercase:</strong> <span id="upper"></span></p>
+    <p><strong>Length:</strong> <span id="length"></span></p>
+    <p><strong>First Name:</strong> <span id="first"></span></p>
+    <p>Also check the console (Right-click → Inspect → Console)</p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Prototype Example</title>
+</head>
+<body>
+
+  <h2>Car Prototype Demo</h2>
+  <button onclick="showDescription()">Show Car Description</button>
+  <p id="desc"></p>
+
+  <script>
+    // Constructor function
+    function Car(brand, model) {
+      this.brand = brand;
+      this.model = model;
+    }
+
+    // Prototype method
+    Car.prototype.getDescription = function () {
+      return `${this.brand} ${this.model}`;
+    };
+
+    // Create a car instance
+    const car1 = new Car("Honda", "Civic");
+
+    function showDescription() {
+      const description = car1.getDescription();
+      console.log(description);
+      document.getElementById("desc").innerText = description;
+    }
+  </script>
+
+</body>
+</html>

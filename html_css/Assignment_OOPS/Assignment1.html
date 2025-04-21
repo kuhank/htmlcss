@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Object Example</title>
+</head>
+<body>
+
+  <h2>Car Information</h2>
+  <button onclick="car.displayInfo()">Show Car Info</button>
+  <p id="carInfo"></p>
+
+  <script>
+    const car = {
+      brand: "Toyota",
+      model: "Camry",
+      year: 2021,
+      displayInfo: function () {
+        const info = `Brand: ${this.brand}, Model: ${this.model}, Year: ${this.year}`;
+        console.log(info);
+        document.getElementById("carInfo").innerText = info;
+      }
+    };
+  </script>
+
+</body>
+</html>

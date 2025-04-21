@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Methods</title>
+    <script>
+        function processNumber() {
+            // Get the number input from the user
+            let input = document.getElementById("numInput").value;
+            let num = parseFloat(input);
+
+            // Check if input is a valid number
+            if (isNaN(num)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            // Round to 2 decimal places (returns a string)
+            let rounded = num.toFixed(2);
+
+            // Convert to string explicitly (optional, already string from toFixed)
+            let asString = rounded.toString();
+
+            // Convert back to number and add 10
+            let added = parseFloat(asString) + 10;
+
+            // Display results
+            document.getElementById("rounded").textContent = rounded;
+            document.getElementById("asString").textContent = asString;
+            document.getElementById("added").textContent = added;
+
+            // Also log to console
+            console.log("Rounded:", rounded);
+            console.log("As string:", asString);
+            console.log("Added 10:", added);
+        }
+    </script>
+</head>
+<body>
+    <h2>Number and Number Methods</h2>
+    <input type="text" id="numInput" placeholder="Enter a number (e.g. 123.456)">
+    <button onclick="processNumber()">Process</button>
+
+    <h3>Results</h3>
+    <p><strong>Rounded (2 decimals):</strong> <span id="rounded"></span></p>
+    <p><strong>As String:</strong> <span id="asString"></span></p>
+    <p><strong>After Adding 10:</strong> <span id="added"></span></p>
+
+    <p>Also check the console for output (Right-click → Inspect → Console)</p>
+</body>
+</html>

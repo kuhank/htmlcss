@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function greet() {
+        console.log("Hello World!");
+    }
+    let greeting=function() {
+        console.log("Hello World!");
+    }
+    greet();
+    greeting();
+    // Arrow function
+    let greetArrow=()=>{
+        console.log("Hello World!");
+    }
+    greetArrow();
+    // Arrow function with parameters
+    let greetArrowWithParams=(name)=>{
+        console.log(`Hello ${name}`);
+    }
+    greetArrowWithParams("Kuhan");
+    let square = function(x) {
+        return x * x;
+    };
+    let squareArrow = (x) => x * x;
+    console.log(square(5)); // Output: 25
+    console.log(squareArrow(5)); // Output: 25
+    function add(x, y) {
+        return x + y;
+    }
+    let addArrow = (x, y) => x + y;
+    console.log(add(5, 10)); // Output: 15
+    console.log(addArrow(5, 10)); // Output: 15
+    // Arrow function with default parameters
+    let greetWithDefault = (name = "World") => {
+        console.log(`Hello ${name}`);
+    }
+    greetWithDefault(); // Output: Hello World 
+    greetWithDefault("Kuhan"); // Output: Hello Kuhan
+    // Arrow function with rest parameters
+    let sum = (...numbers) => {
+        return numbers.reduce((acc, num) => acc + num, 0);
+    }
+    console.log(sum(1, 2, 3, 4, 5)); // Output: 15
+    // Arrow function with spread operator
+    let numbers = [1, 2, 3, 4, 5];
+    let sumWithSpread = (...numbers) => {
+        return numbers.reduce((acc, num) => acc + num, 0);
+    }
+    console.log(sumWithSpread(...numbers)); // Output: 15
+
+    number = 9;
+    let sqrt = Math.sqrt(number);
+    console.log("Square root of 9 is: "+sqrt);
+
+    let pwr=Math.pow(2,3);
+    console.log("2 to the power of 3 is: "+pwr);
+
+    let name="kuhan";
+    console.log("Name is: "+name);
+    console.log("Name length is: "+name.length);
+    console.log("Name in uppercase is: "+name.toUpperCase());
+    console.log("Name in lowercase is: "+name.toLowerCase());
+    console.log("name capitalise 1st letter :"+ name.charAt(0).toUpperCase()+name.slice(1));    
+    </script>
+<body>
+    <h1>js demo</h1>
+    <p>Check the console for output</p>
+</body>
+</html>

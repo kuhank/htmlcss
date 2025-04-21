@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prototype Inheritance Example</title>
+</head>
+<body>
+
+  <h2>Student Inheritance Example</h2>
+  <button onclick="showStudentInfo()">Show Student Info</button>
+  <p id="info"></p>
+
+  <script>
+    // Person constructor
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    // Method on Person's prototype
+    Person.prototype.introduce = function () {
+      return `Hi, I'm ${this.name} and I'm ${this.age} years old.`;
+    };
+
+    // Student constructor
+    function Student(name, age, grade) {
+      Person.call(this, name, age); // Inherit Person's properties
+      this.grade = grade;
+    }
+
+    // Inherit Person's prototype methods
+    Student.prototype = Object.create(Person.prototype);
+    Student.prototype.constructor = Student;
+
+    // Add method to Student prototype
+    Student.prototype.getGrade = function () {
+      return `${this.name} is in grade ${this.grade}`;
+    };
+
+    // Create a student object
+    const student1 = new Student("Bob", 16, 10);
+
+    function showStudentInfo() {
+      const intro = student1.introduce();
+      const grade = student1.getGrade();
+      const result = `${intro}\n${grade}`;
+      console.log(result);
+      document.getElementById("info").innerText = result;
+    }
+  </script>
+
+</body>
+</html>

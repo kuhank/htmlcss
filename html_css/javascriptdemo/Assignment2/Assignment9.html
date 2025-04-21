@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods - Fruits Example</title>
+    <script>
+        function manipulateFruits() {
+            // Step 1: Create the array
+            let fruits = ["apple", "banana", "cherry", "mango", "grape"];
+            console.log("Initial fruits:", fruits);
+
+            // Step 2: Add a new fruit at the end
+            fruits.push("orange");
+            console.log("After adding 'orange':", fruits);
+
+            // Step 3: Remove the first fruit
+            fruits.shift();
+            console.log("After removing first fruit:", fruits);
+
+            // Step 4: Convert all to uppercase
+            let upperFruits = fruits.map(fruit => fruit.toUpperCase());
+            console.log("Uppercase fruits:", upperFruits);
+
+            // Display on the page
+            document.getElementById("output").innerHTML = `
+                <strong>Final Fruits:</strong> ${upperFruits.join(", ")}
+            `;
+        }
+    </script>
+</head>
+<body>
+    <h2>Fruit Array Manipulation</h2>
+    <button onclick="manipulateFruits()">Process Fruits</button>
+    <p id="output" style="margin-top: 20px; font-weight: bold;"></p>
+
+    <p>Check the browser console for step-by-step array changes!</p>
+</body>
+</html>

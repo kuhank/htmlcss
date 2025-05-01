@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Table with Form</title>
+      <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          padding: 8px;
+        }
+        th {
+          background-color: #f0f0f0;
+        }
+        form {
+          margin-top: 20px;
+        }
+        input {
+          margin: 5px;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <h2>Product Inventory</h2>
+    
+      <table id="productTable">
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Added Date</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>101</td>
+            <td>Keyboard</td>
+            <td>2025-04-29</td>
+            <td>$20</td>
+          </tr>
+          <tr>
+            <td>102</td>
+            <td>Mouse</td>
+            <td>2025-04-29</td>
+            <td>$10</td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <h3>Add New Product</h3>
+      <form id="productForm" onsubmit="addProductFromForm(event)">
+        <input type="text" id="productId" placeholder="Product ID" required />
+        <input type="text" id="productName" placeholder="Product Name" required />
+        <input type="number" id="productPrice" placeholder="Price" required />
+        <button type="submit">Add Product</button>
+      </form>
+    
+      <script>
+        function addProductFromForm(event) {
+          event.preventDefault(); // Prevent form submission from refreshing the page
+    
+          const id = document.getElementById("productId").value;
+          const name = document.getElementById("productName").value;
+          const price = document.getElementById("productPrice").value;
+    
+          const date = new Date().toISOString().split('T')[0]; // current date YYYY-MM-DD
+    
+          const tableBody = document.getElementById("productTable").getElementsByTagName("tbody")[0];
+          const newRow = document.createElement("tr");
+    
+          newRow.innerHTML = `
+            <td>${id}</td>
+            <td>${name}</td>
+            <td>${date}</td>
+            <td>$${price}</td>
+          `;
+    
+          tableBody.appendChild(newRow);
+    
+          // Clear form
+          document.getElementById("productForm").reset();
+        }
+      </script>
+    
+    </body>
+    </html>
+    

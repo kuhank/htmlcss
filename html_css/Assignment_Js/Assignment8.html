@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jQuery: Hide Headings & Track Mouse</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            cursor: pointer;
+            color: darkblue;
+            margin: 10px 0;
+        }
+
+        #mousePosition {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>This is an H1 heading</h1>
+    <h2>This is an H2 heading</h2>
+    <h3>This is an H3 heading</h3>
+    <h4>This is an H4 heading</h4>
+    <h5>This is an H5 heading</h5>
+    <h6>This is an H6 heading</h6>
+
+    <div id="mousePosition">Mouse Position: X = 0, Y = 0</div>
+
+    <script>
+        $(document).ready(function () {
+            // Hide heading when clicked
+            $("h1, h2, h3, h4, h5, h6").click(function () {
+                $(this).hide();
+            });
+
+            // Track mouse position
+            $(document).mousemove(function (event) {
+                let x = event.pageX;
+                let y = event.pageY;
+                $("#mousePosition").text("Mouse Position: X = " + x + ", Y = " + y);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cricket Scoreboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: antiquewhite;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Cricket Match Scoreboard</h2>
+    <button onclick="showScoreboard()">Show Scoreboard</button>
+
+    <div id="scoreboardOutput"></div>
+
+    <script>
+        const matchData = {
+            matchId: "INDvAUS20250420",
+            venue: "Wankhede Stadium, Mumbai",
+            date: "2025-04-20",
+            teams: {
+                teamA: "India",
+                teamB: "Australia"
+            },
+            innings: [
+                {
+                    team: "India",
+                    score: 289,
+                    wickets: 6,
+                    overs: 50,
+                    batsmen: [
+                        { name: "Rohit Sharma", runs: 85, balls: 76 },
+                        { name: "Virat Kohli", runs: 101, balls: 92 },
+                        { name: "Hardik Pandya", runs: 45, balls: 33 }
+                    ],
+                    bowling: [
+                        { name: "Mitchell Starc", overs: 10, runsConceded: 55, wickets: 2 },
+                        { name: "Pat Cummins", overs: 10, runsConceded: 62, wickets: 1 }
+                    ]
+                },
+                {
+                    team: "Australia",
+                    score: 271,
+                    wickets: 8,
+                    overs: 50,
+                    batsmen: [
+                        { name: "David Warner", runs: 64, balls: 48 },
+                        { name: "Steve Smith", runs: 73, balls: 85 }
+                    ],
+                    bowling: [
+                        { name: "Jasprit Bumrah", overs: 10, runsConceded: 42, wickets: 3 },
+                        { name: "Ravindra Jadeja", overs: 10, runsConceded: 38, wickets: 2 }
+                    ]
+                }
+            ],
+            result: "India won by 18 runs",
+            playerOfTheMatch: "Virat Kohli"
+        };
+
+        function showScoreboard() {
+            const output = document.getElementById("scoreboardOutput");
+            let html = `
+                    <h3>${matchData.teams.teamA} vs ${matchData.teams.teamB}</h3>
+                    <p><strong>Date:</strong> ${matchData.date}</p>
+                    <p><strong>Venue:</strong> ${matchData.venue}</p>
+                    <p><strong>Result:</strong> ${matchData.result}</p>
+                    <p><strong>Player of the Match:</strong> ${matchData.playerOfTheMatch}</p>
+                `;
+
+            matchData.innings.forEach(inning => {
+                html += `<h4>${inning.team} Innings</h4>`;
+                html += `<p><strong>Score:</strong> ${inning.score}/${inning.wickets} in ${inning.overs} overs</p>`;
+
+                html += "<strong>Batsmen:</strong><ul>";
+                inning.batsmen.forEach(player => {
+                    html += `<li>${player.name}: ${player.runs} runs (${player.balls} balls)</li>`;
+                });
+                html += "</ul>";
+
+                html += "<strong>Bowling:</strong><ul>";
+                inning.bowling.forEach(bowler => {
+                    html += `<li>${bowler.name}: ${bowler.overs} overs, ${bowler.runsConceded} runs, ${bowler.wickets} wickets</li>`;
+                });
+                html += "</ul>";
+            });
+
+            output.innerHTML = html;
+        }
+    </script>
+
+</body>
+
+</html>

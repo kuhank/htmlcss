@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Change Link with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        a {
+            color: blue;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Original Link:</h3>
+    <a id="myLink" href="https://www.google.com">Visit Example.com</a>
+
+    <button id="changeLink">Change Link & Text</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#changeLink').click(function() {
+                // Change the hyperlink href and the text
+                $('#myLink')
+                    .attr('href', 'https://openai.com')
+                    .text('Visit OpenAI.com');
+            });
+        });
+    </script>
+
+</body>
+</html>

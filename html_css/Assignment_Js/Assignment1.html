@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Sort a List of Numbers</h2>
+    <label for="inputList">Enter numbers (comma separated):</label><br>
+    <input type="text" id="inputList" placeholder="e.g. 64, 25, 12, 22, 11"><br>
+    <button onclick="sortList()">Sort</button>
+
+    <h3>Sorted List:</h3>
+    <p id="output"></p>
+
+    <script>
+        function bubbleSort(arr) {
+            let n = arr.length;
+            let swapped;
+
+            for (let i = 0; i < n - 1; i++) {
+                swapped = false;
+                for (let j = 0; j < n - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                        swapped = true;
+                    }
+                }
+                if (!swapped) break;
+            }
+            return arr;
+        }
+
+        function sortList() {
+            const input = document.getElementById("inputList").value;
+            let numberArray = input.split(",").map(num => parseFloat(num.trim()));
+
+            if (numberArray.some(isNaN)) {
+                document.getElementById("output").innerText = "Please enter valid numbers.";
+                return;
+            }
+
+            const sorted = bubbleSort(numberArray);
+            document.getElementById("output").innerText = sorted.join(", ");
+        }
+    </script>
+</body>
+
+</html>

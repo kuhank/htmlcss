@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 6</title>
+    <style>
+        input[type="text"],
+        input[type="email"] {
+            padding: 10px;
+            border: 2px solid gray;
+            margin-bottom: 10px;
+            width: 250px;
+        }
+
+        input[type="submit"] {
+            background-color: darkcyan;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        form {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="submit.html" method="post">
+        <label>Name:</label><br>
+        <input type="text" name="name"><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

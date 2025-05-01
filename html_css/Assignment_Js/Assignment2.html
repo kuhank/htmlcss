@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>List Object Properties</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>JavaScript Object Properties</h2>
+
+    <button onclick="listProperties()">List Properties</button>
+
+    <h3>Object:</h3>
+    <pre id="objectDisplay"></pre>
+
+    <h3>Properties:</h3>
+    <ul id="propertyList"></ul>
+
+    <script>
+        // Example object
+        const person = {
+            name: "John",
+            age: 30,
+            occupation: "Engineer",
+            country: "USA"
+        };
+
+        function listProperties() {
+            const properties = Object.keys(person);  // Get keys of the object
+
+            // Display the object itself
+            document.getElementById("objectDisplay").textContent = JSON.stringify(person, null, 2);
+
+            // Display the properties
+            const list = document.getElementById("propertyList");
+            list.innerHTML = ""; // Clear previous results
+
+            properties.forEach(prop => {
+                const li = document.createElement("li");
+                li.textContent = prop;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html>

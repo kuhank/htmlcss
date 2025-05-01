@@ -1,0 +1,26 @@
+#p4 {
+  color: #0000ff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+#p3 {
+  color: white !important;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center !important;
+}
+.p5 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#sam-para {
+  width: 600px; /* Content width */
+  height: 80px; /* Content height */
+  padding: 20px; /* Space inside the border */
+  border: 5px solid black; /* Border around the content */
+  margin: 30px; /* Space outside the border */
+  background-color: lightblue; /* Background color of the content */
+}
+#sam-para1 {
+  text-align: justify;
+}

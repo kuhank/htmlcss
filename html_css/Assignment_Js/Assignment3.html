@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: antiquewhite;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        textarea,
+        button {
+            padding: 8px;
+            margin-top: 5px;
+            width: 300px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Resume Form</h2>
+
+    <form id="resumeForm" onsubmit="return validateForm()">
+        <label>First Name:
+            <input type="text" id="firstName" name="firstName" required>
+        </label>
+
+        <label>Last Name:
+            <input type="text" id="lastName" name="lastName" required>
+        </label>
+
+        <label>Email:
+            <input type="email" id="email" name="email" required>
+        </label>
+
+        <label>Phone Number:
+            <input type="text" id="phone" name="phone" required>
+        </label>
+
+        <label>About Me:
+            <textarea id="about" name="about" required></textarea>
+        </label>
+
+        <button type="submit">Submit Resume</button>
+    </form>
+
+    <p id="nameOutput"></p>
+    <p class="error" id="errorOutput"></p>
+
+    <hr>
+
+    <h3>Check if Input is a RegEx</h3>
+    <input type="text" id="regexInput" placeholder="Enter something like /^[a-z]+$/">
+    <button onclick="checkIfRegEx()">Check</button>
+    <p id="regexResult"></p>
+
+    <script>
+        // Get first and last name from form
+        function getNames() {
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            document.getElementById("nameOutput").innerText = `Full Name: ${firstName} ${lastName}`;
+        }
+
+        // Client-side validation
+        function validateForm() {
+            const phone = document.getElementById("phone").value.trim();
+            const about = document.getElementById("about").value.trim();
+            const errorOutput = document.getElementById("errorOutput");
+
+            // Basic phone number validation
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone)) {
+                errorOutput.innerText = "Phone number must be 10 digits.";
+                return false;
+            }
+
+            if (about.length < 10) {
+                errorOutput.innerText = "About Me section must be at least 10 characters.";
+                return false;
+            }
+
+            errorOutput.innerText = "";
+            getNames(); // Show full name
+            return false; // prevent form submission for demo
+        }
+
+        // Function to validate if a string is a RegEx
+        function checkIfRegEx() {
+            const input = document.getElementById("regexInput").value.trim();
+            const output = document.getElementById("regexResult");
+
+            try {
+                const regex = new RegExp(input.slice(1, input.lastIndexOf('/')), input.slice(input.lastIndexOf('/') + 1));
+                output.innerText = "This is a valid RegEx.";
+            } catch (e) {
+                output.innerText = "Invalid RegEx.";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

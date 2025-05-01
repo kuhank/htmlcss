@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Click and Double-Click Events with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        p {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Click or Double-Click on the Paragraphs</h2>
+
+    <p>This is paragraph 1.</p>
+    <p>This is paragraph 2.</p>
+    <p>This is paragraph 3.</p>
+
+    <script>
+        $(document).ready(function () {
+            let clickTimer;
+
+            $("p").click(function () {
+                clearTimeout(clickTimer); // Clear any existing timer
+                clickTimer = setTimeout(() => {
+                    $(this).css("background-color", "lightblue");
+                    alert("Paragraph clicked!");
+                }, 300); // Delay to differentiate single click
+            });
+
+            $("p").dblclick(function () {
+                clearTimeout(clickTimer); // Prevent single-click action
+                $(this).css("background-color", "lightgreen");
+                alert("Paragraph double-clicked!");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

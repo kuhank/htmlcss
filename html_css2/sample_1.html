@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo</title>
+    <!-- Style tag demo -->
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+
+        h2 {
+            color: chocolate;
+        }
+
+        #p1 {
+            color: white;
+        }
+
+        .p2 {
+            color: blue;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h2 class="p2" style="color:black;">Sample Web Demo</h2>
+    <p id="p1">This is my Para1</p>
+    <p style="color:red;">This is my Para2</p>
+    <p id="p4">External style css</p>
+    <p id="p3">External style css 2</p>
+    <p id="p3">using same id</p>
+    <p class="p5">font family</p>
+    <br /><br />
+    <div>
+        <h1>sample para- CSS box model demo</h1>
+        <p id="sam-para1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eius earum accusantium,
+            incidunt commodi natus sed, 
+            delectus similique quam laudantium repudiandae! 
+            Deleniti accusamus suscipit recusandae ducimus esse ut, 
+            eveniet aliquid.</p>
+        <div id="sam-para">
+            <p>Lorem ipsum dolor sit, 
+                amet consectetur adipisicing elit. 
+                Repellat eveniet omnis nisi provident! 
+                Provident amet sed deserunt commodi magnam, 
+                non, quidem placeat, eaque ab eius velit ea! 
+                Cupiditate, incidunt obcaecati.</p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!--
+Final Precedence Order:
+    Inline styles (style="..." in the HTML element).
+    Internal styles (within <style> tags in the HTML).
+    External styles (from linked CSS files).
+    !important overrides all of the above.
+-->

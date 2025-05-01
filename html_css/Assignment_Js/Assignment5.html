@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>jQuery Single Element Selection</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        p {
+            padding: 10px;
+            background: #eee;
+            margin: 5px;
+        }
+
+        .highlight {
+            background: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Paragraphs</h2>
+
+    <p>This is paragraph 1.</p>
+    <p>This is paragraph 2.</p>
+    <p>This is paragraph 3.</p>
+    <p>This is paragraph 4.</p>
+
+    <button id="selectOne">Highlight First Paragraph</button>
+    <button id="selectTwo">Highlight Second Paragraph</button>
+    <button id="selectThree">Highlight Third Paragraph</button>
+    <button id="selectFour">Highlight Fourth Paragraph</button>
+
+    <script>
+        $(document).ready(function () {
+            $('#selectOne').click(function () {
+                // Select the first <p> from the group and add a class to highlight it
+                $('p').first().toggleClass('highlight');
+            });
+            $('#selectTwo').click(function () {
+                // Select the first <p> from the group and add a class to highlight it
+                $('p').eq(1).addClass('highlight');
+            });
+            $('#selectThree').click(function () {
+                // Select the first <p> from the group and add a class to highlight it
+                $('p').eq(2).addClass('highlight');
+            });
+            $('#selectFour').click(function () {
+                // Select the first <p> from the group and add a class to highlight it
+                $('p').eq(3).addClass('highlight');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

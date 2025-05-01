@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .highlight{
+        color: red;
+        /* font-weight: bold; */
+    }
+    .bold{
+        font-weight: bold;
+    }
+    </style>
+<body>
+    <div id="Example" class="bold">
+        this is the test element with bold class
+    </div>
+    <button onclick="addclass()">Add hightlight class</button>
+    <button onclick="removeclass()">Remove bold</button>
+    <button onclick="addbold()">Add Bold</button>
+    <button onclick="toggleclass()">toggle hightlight</button>
+</body>
+<script>
+    function addclass() {
+        document.getElementById("Example").classList.add("highlight");
+    }
+    function removeclass() {
+        const element=document.getElementById("Example");
+        console.log("Before:", element.classList);
+        document.getElementById("Example").classList.remove("bold");
+        console.log("After:", element.classList);
+    }
+    function toggleclass() {
+        document.getElementById("Example").classList.toggle("highlight");
+    }   
+    function addbold() {
+        document.getElementById("Example").classList.add("bold");
+    }
+    </script>
+</html>

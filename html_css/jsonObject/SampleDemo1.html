@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Values</title>
+</head>
+<body>
+    <h2>JSON Object</h2>
+    <script>
+        const data = [
+            {
+                color: "blue",
+                value: "#00f"
+            },
+            {
+                color: "cyan",
+                value: "#0ff"
+            },
+            {
+                color: "magenta",
+                value: "#f0f"
+            },
+            {
+                color: "yellow",
+                value: "#ff0"
+            },
+            {
+                color: "black",
+                value: "#000"
+            }
+        ];
+
+        for (let i = 0; i < data.length; i++) {
+            console.log(data[i].color + " " + data[i].value);
+        }
+    </script>
+</body>
+</html>

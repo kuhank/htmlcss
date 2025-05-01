@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function ajaxCall() {
+        
+    let url = 'https://jsonplaceholder.typicode.com/posts';
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            let output = '<h2>Posts</h2>';
+            data.forEach(post => {
+                output += `<h3>${post.title}</h3><p>${post.body}</p>`;
+            });
+            document.getElementById('result').innerHTML = output;
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            document.getElementById('result').innerHTML = '<p>Error fetching data.</p>';
+        });
+    }
+</script>
+
+<body>
+    <h2>Ajax demo</h2>
+    <button id="ajaxButton">Fetch Posts</button>
+    <div id="result"></div>
+    <script>
+        $(document).ready(function () {
+            $('#ajaxButton').click(function () {
+                ajaxCall();
+            });
+        });
+    </script>
+</body>
+
+</html>
